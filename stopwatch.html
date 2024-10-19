@@ -22,14 +22,15 @@
             var $buttonReset = $('#button-reset');//document.getElementById('button-reset');
             var interval;
 
-            $("#timer").addClass('timer-background');
+            $("#timer").addClass('timer-background'); 
             $(".timer-background").css({
                 backgroundColor: "grey",
                 textAlign: "center",
-                width: "125px",
+                width: "175px",
                 height: "auto",
                 display: "flex-inline",
                 margin: "auto",
+                "font-size": "35px",
             });
             $('div').css({
                textAlign: "center",
@@ -38,12 +39,42 @@
             $("button").css({
                 marginTop: "15px",
             });
+            $("button").addClass('timer-buttons');
+            $(".timer-buttons").css({
+                borderRadius: "25%",
+                "font-size": "20px",
+                boxShadow: "0 6px 0",
+                backgroundColor: "lightblue",
+                fontFamily: "Chalkduster",
+                width: "100px",
+                fontVariant: "small-caps",
+                height: "40px"
+
+            });
+            $(".timer-buttons").hover(
+                function(){
+                    $(".timer-buttons").css({
+                    color: "green",
+                    height: "50px",
+                    });
+                },
+                function(){
+                    $(".timer-buttons").css({
+                        color: "black",
+                        height: "40px",
+                        });
+                });
+            $("#seconds").css({
+                fontFamily: "Chalkduster",
+            });
+            $("#tens").css({
+                fontFamily: "Chalkduster",
+            });
             $buttonStart.click(function (){
                 clearInterval(interval);
                 interval = setInterval(startTimer, 10);
-                $('.timer-background').css("background-color", "rgb(51,165, 50)");     
+                $('.timer-background').css("background-color", "rgb(51,165, 50)"); 
             });
-
             $buttonStop.click(function(){
                 clearInterval(interval);
                 if(seconds == "00" && tens =="00"){
@@ -52,10 +83,8 @@
                 else{
                     $('.timer-background').css("background-color", "red"); 
                 }
-                
             });
-
-            $buttonReset.click(function(){
+            $buttonReset.click(function(){ 
                 clearInterval(interval);
                 tens = "00";
                 seconds = "00";
@@ -63,19 +92,15 @@
                 $appendSeconds.html(seconds);
                 $('.timer-background').css("background-color", "grey"); 
             });
-
             function startTimer() {
                 tens++;
-
                 if (tens < 9) {
                     $appendTens.html("0" + tens);
                 }
-
                 if (tens > 9) {
                     $appendTens.html(tens);
 
                 }
-
                 if (tens > 99) {
                     console.log("seconds");
                     seconds++;
@@ -83,13 +108,11 @@
                     tens = 0;
                     $("#appendTens").html("0" + 0);
                 }
-
                 if (seconds > 9) {
                     $appendSeconds.html(seconds);
                 }
             }
-
-    });
+        });
     </script>
 </head>
 
