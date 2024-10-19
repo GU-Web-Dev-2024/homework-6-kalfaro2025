@@ -1,0 +1,19 @@
+.timer-buttons {
+    border-radius: "25%";
+    font-size: "20px";
+    box-shadow: "0 6px 0";
+    background-color: "lightblue";
+    font-family: "Chalkduster";
+    width: "100px";
+    font-variant: "small-caps";
+    height: "40px";
+}
+.timer-background {
+    background-color: "grey";
+    text-align: "center";
+    width: "175px";
+    height: "auto";
+    margin: "auto";
+    font-size: "35px";
+    border-radius: "35%";
+}
