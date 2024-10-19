@@ -22,13 +22,37 @@
             var $buttonReset = $('#button-reset');//document.getElementById('button-reset');
             var interval;
 
+            $("#timer").addClass('timer-background');
+            $(".timer-background").css({
+                backgroundColor: "grey",
+                textAlign: "center",
+                width: "125px",
+                height: "auto",
+                display: "flex-inline",
+                margin: "auto",
+            });
+            $('div').css({
+               textAlign: "center",
+               height: "auto",
+            });
+            $("button").css({
+                marginTop: "15px",
+            });
             $buttonStart.click(function (){
                 clearInterval(interval);
                 interval = setInterval(startTimer, 10);
+                $('.timer-background').css("background-color", "rgb(51,165, 50)");     
             });
 
             $buttonStop.click(function(){
                 clearInterval(interval);
+                if(seconds == "00" && tens =="00"){
+                    $('.timer-background').css(backgroundColor, "grey");
+                }
+                else{
+                    $('.timer-background').css("background-color", "red"); 
+                }
+                
             });
 
             $buttonReset.click(function(){
@@ -37,6 +61,7 @@
                 seconds = "00";
                 $appendTens.html(tens);
                 $appendSeconds.html(seconds);
+                $('.timer-background').css("background-color", "grey"); 
             });
 
             function startTimer() {
@@ -63,6 +88,7 @@
                     $appendSeconds.html(seconds);
                 }
             }
+
     });
     </script>
 </head>
@@ -71,7 +97,7 @@
     <div class="wrapper">
         <h1>Stopwatch</h1>
         <h2>Vanilla JavaScript Stopwatch</h2>
-        <p><span id="seconds">00</span>:<span id="tens">00</span></p>
+        <p id="timer"><span id="seconds">00</span>:<span id="tens">00</span></p>
         <button type="button" id="button-start">Start</button>
         <button type="button" id="button-stop">Stop</button>
         <button type="button" id="button-reset">Reset</button>
