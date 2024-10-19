@@ -32,6 +32,14 @@
                 margin: "auto",
                 "font-size": "35px",
             });
+            setInterval(function(){
+                $(".timer-background").animate({
+                    opacity: 1.0
+                }, 1000);
+                $(".timer-background").animate({
+                    opacity: 0.8
+                }, 1000);
+            });
             $('div').css({
                textAlign: "center",
                height: "auto",
@@ -79,9 +87,11 @@
                 clearInterval(interval);
                 if(seconds == "00" && tens =="00"){
                     $('.timer-background').css(backgroundColor, "grey");
+                    $('.timer-background').css(opacity, "1");
                 }
                 else{
                     $('.timer-background').css("background-color", "red"); 
+                    $('.timer-background').css(opacity, "1");
                 }
             });
             $buttonReset.click(function(){ 
@@ -91,6 +101,7 @@
                 $appendTens.html(tens);
                 $appendSeconds.html(seconds);
                 $('.timer-background').css("background-color", "grey"); 
+                $('.timer-background').css(opacity, "1");
             });
             function startTimer() {
                 tens++;
