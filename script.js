@@ -10,6 +10,15 @@ $(document).ready(function(){
     var interval;
 
     $("#timer").addClass('timer-background'); 
+    $(".timer-background").css({
+        backgroundColor: "grey",
+        textAlign: "center",
+        width: "175px",
+        height: "auto",
+        margin: "auto",
+        "font-size": "35px",
+        borderRadius: "35%",
+    });
     setInterval(function(){
         $(".timer-background").animate({
             opacity: 1.0
@@ -17,11 +26,21 @@ $(document).ready(function(){
         $(".timer-background").animate({
             opacity: 0.8
         }, 1000);
-    });
+    })
     $("button").css({
         marginTop: "15px",
     });
     $("button").addClass('timer-buttons');
+    $(".timer-buttons").css({
+        borderRadius: "25%",
+        "font-size": "20px",
+        boxShadow: "0 6px 0",
+        backgroundColor: "lightblue",
+        fontFamily: "Chalkduster",
+        width: "100px",
+        fontVariant: "small-caps",
+        height: "40px"
+    });
     $(".timer-buttons").hover(
         function(){
             $(".timer-buttons").css({
@@ -104,7 +123,7 @@ $(document).ready(function(){
             $("#appendTens").html("0" + 0);
         }
         if (seconds > 9) {
-            $appendSeconds.html(seconds);
+        $appendSeconds.html(seconds);
         }
     }
 });
