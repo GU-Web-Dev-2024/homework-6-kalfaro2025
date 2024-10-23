@@ -7,6 +7,7 @@ $(document).ready(function(){
     var $buttonStart =$('#button-start');//document.getElementById('button-start');
     var $buttonStop = $('#button-stop');//document.getElementById('button-stop');
     var $buttonReset = $('#button-reset');//document.getElementById('button-reset');
+    var opacityInterval = 0
     var interval;
 
     $("#timer").addClass('timer-background'); 
@@ -19,14 +20,6 @@ $(document).ready(function(){
         "font-size": "35px",
         borderRadius: "35%",
     });
-    setInterval(function(){
-        $(".timer-background").animate({
-            opacity: 1.0
-        }, 1000);
-        $(".timer-background").animate({
-            opacity: 0.8
-        }, 1000);
-    })
     $("button").css({
         marginTop: "15px",
     });
@@ -80,26 +73,32 @@ $(document).ready(function(){
         clearInterval(interval);
         interval = setInterval(startTimer, 10);
         $('.timer-background').css("background-color", "rgb(51,165, 50)"); 
-    });
+        opacityInterval = setInterval(function () {
+            $(".timer-background").animate({ opacity: 1.0 }, 1000).animate({ opacity: 0.8 }, 1000);
+        });
+    });  
     $buttonStop.click(function(){
         clearInterval(interval);
+        clearInterval(opacityInterval);
+        $('.timer-background').stop(true, true);
         if(seconds == "00" && tens =="00"){
             $('.timer-background').css(backgroundColor, "grey");
-            $('.timer-background').css(opacity, "1");
         }
         else{
-            $('.timer-background').css("background-color", "red"); 
-            $('.timer-background').css(opacity, "1");
+            $('.timer-background').css("background-color", "red");
         }
+        $('.timer-background').css("opacity", "1");
     });
     $buttonReset.click(function(){ 
         clearInterval(interval);
+        clearInterval(opacityInterval);
         tens = "00";
         seconds = "00";
         $appendTens.html(tens);
         $appendSeconds.html(seconds);
         $('.timer-background').css("background-color", "grey"); 
-        $('.timer-background').css(opacity, "1");
+        $('.timer-background').stop();
+        $('.timer-background').css("opacity", "1");
     });
     function startTimer() {
         tens++;
