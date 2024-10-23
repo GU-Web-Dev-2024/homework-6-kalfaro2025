@@ -1,6 +1,10 @@
 body {
-    border-style: "dotted";
-    border-color: "CornflowerBlue";
-    border-width: "5px";
+    background-color: palegreen;
+    border-color: darkcyan;
+    padding: 25px;
+    border-style: dotted;
+    border-radius: 25px;
+    border-width: 25px;
 }
+
     

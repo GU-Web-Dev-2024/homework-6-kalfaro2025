@@ -64,7 +64,7 @@ $(document).ready(function(){
     });
     $('div').css({
         "background-image": "url('image copy.png')",
-        height: "auto",
+        height: "500px",
         width: "auto",
         padding: "10px",
         textAlign: "center",
