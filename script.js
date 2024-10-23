@@ -68,12 +68,6 @@ $(document).ready(function(){
         width: "auto",
         padding: "10px",
         textAlign: "center",
-
-    });
-    $('body').css({
-        borderStyle: "dotted",
-        borderColor: "CornflowerBlue",
-        borderWidth: "5px"
     });
     $('h1').css({
         color: "Purple",
